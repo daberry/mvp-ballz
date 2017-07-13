@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Slither.io Clone - Loonride Example</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="ballz.js"></script>
+</head>
+<body>
+  <div id="content">
+    <div id="circle" >
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      console.log("clientX: " + event.clientX + " - clientY: " + event.clientY);
+      socket.emit('click', {x: event.clientX, y: event.clientY});
+    });
+  </script>
+</body>
+</html>
