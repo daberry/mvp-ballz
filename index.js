@@ -19,7 +19,7 @@ io.on('connection', function (socket) {
 
   socket.on('click', function (data) {
     // we tell the client to execute 'new message'
-    socket.broadcast.emit('newPosition', {
+    io.emit('newPosition', {
       x: data.x,
       y: data.y
     });

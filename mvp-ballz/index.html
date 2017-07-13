@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="content">
-    <div id="circle" >
+    <div class="circle red">
     </div>
   </div>
 
@@ -17,6 +17,12 @@
     document.addEventListener('click', function(e) {
       console.log("clientX: " + event.clientX + " - clientY: " + event.clientY);
       socket.emit('click', {x: event.clientX, y: event.clientY});
+    });
+    var circle = document.querySelector('#content > .circle')
+    socket.on('newPosition', function(data) {
+      console.log('new position event triggered: ', data.x, data.y);
+      circle.style.left = data.x + "px";
+      circle.style.top = data.y + "px";
     });
   </script>
 </body>
